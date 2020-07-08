@@ -12,9 +12,11 @@ public enum ResultTypeEnum {
     //系统内部错误，请联系管理员
     SYS_ERROR("900", "系统内部错误，请联系管理员"),
     //token错误
-    SYS_TOKEN_ERROR("800","养老机构"),
+    SYS_TOKEN_ERROR("800","token错误"),
     //请求格式错误
     SYS_REQUEST_ERROR("204","请求格式错误"),
+    //无效签名
+    SYS_SIGN_ERROR("700","无效签名"),
 
     //操作成功
     BIZ_SUCCESS("200000","操作成功"),

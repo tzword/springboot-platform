@@ -23,7 +23,7 @@ public class AjaxResult extends HashMap<String, Object> {
      * @Description: 返回自定义错误信息
      * @param code 1
      * @param message 2
-     * @return com.platform.common.domain.AjaxResult
+     * @return com.chinaunicom.common.domain.AjaxResult
      * @throws
      * @author jianghy
      * @date 2020/4/27 14:27
@@ -42,11 +42,28 @@ public class AjaxResult extends HashMap<String, Object> {
 
 
     /**
+     * @param resultCode    1
+     * @param resultMessage 2
+     * @return com.chinaunicom.common.domain.AjaxResult
+     * @throws
+     * @Description: 返回系统自定义错误信息
+     * @author jianghy
+     * @date 2020/5/25 16:07
+     */
+    public static AjaxResult errorMsg(String resultCode, String resultMessage) {
+        AjaxResult json = new AjaxResult();
+        json.put("resultCode", resultCode);
+        json.put("resultMessage",resultMessage);
+        return json;
+    }
+
+
+    /**
      * @Description: 成功返回数据
      * @param code 1
      * @param message 2
      * @param o 3
-     * @return com.platform.common.domain.AjaxResult
+     * @return com.chinaunicom.common.domain.AjaxResult
      * @throws
      * @author jianghy
      * @date 2020/4/27 14:32
@@ -68,7 +85,7 @@ public class AjaxResult extends HashMap<String, Object> {
     /**
      * @Description: 操作成功
      * @param  1 
-     * @return com.platform.common.domain.AjaxResult
+     * @return com.chinaunicom.common.domain.AjaxResult 
      * @throws
      * @author jianghy
      * @date 2020/4/27 14:39 
@@ -89,7 +106,7 @@ public class AjaxResult extends HashMap<String, Object> {
     /**
      * @Description: 操作失败
      * @param  1
-     * @return com.platform.common.domain.AjaxResult
+     * @return com.chinaunicom.common.domain.AjaxResult
      * @throws
      * @author jianghy
      * @date 2020/4/27 14:45

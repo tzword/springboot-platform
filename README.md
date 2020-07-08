@@ -18,7 +18,9 @@ java
 │  ├─gen 代码生成工具
 │       └─CodeGenerator 代码生成工具启动类
 |  ├─kafka 生产和消费
+|  ├─rsa ras加密解密组件
 |  ├─shiro shiro配置包
+|  ├─sign 验签组件(md5,sha1)
 |  ├─sysenum enum枚举包
 │  └─xss xss过滤器
 │
