@@ -80,6 +80,8 @@ druid|阿里连接池||
 DynamicDataSource|主从数据源配置||
 rabbitmq|rabbitmq配置||
 kafka|kafka配置||
+ras|rsa加密||
+sign|验签插件||
 
 
 ### 开发环境
