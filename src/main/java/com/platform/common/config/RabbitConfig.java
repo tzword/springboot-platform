@@ -1,11 +1,15 @@
 package com.platform.common.config;
 
-import org.springframework.amqp.core.Message;
+import lombok.Value;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Description RabbitConfig配置
@@ -14,8 +18,82 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class RabbitConfig {
+    //订单交换机
+    public static final String orderExchange = "order-exchange";
+    //订单队列
+    public static final String orderQueue = "order-queue";
+    //订单路由
+    public static final String orderRoutingKey = "order-routing-key";
+    //死信交换机
+    public static final String dlxExchange = "dlx-exchange";
+    //死信队列
+    public static final String dlxQueue = "dlx-queue";
+    //死信路由
+    public static final String dlxRoutingKey = "order-routing-key";
 
-    public static final String QUEUE = "test";
+
+    /**
+     * 声明订单业务队列
+     * @return Queue
+     */
+    @Bean
+    public Queue orderQueue() {
+        Map<String,Object> arguments = new HashMap<>(2);
+        // 绑定该队列到私信交换机
+        arguments.put("x-dead-letter-exchange",dlxExchange);
+        arguments.put("x-dead-letter-routing-key",dlxRoutingKey);
+        return new Queue(orderQueue,true,false,false,arguments);
+    }
+
+    /**
+     * 声明订单业务交换机
+     * @return DirectExchange
+     */
+    @Bean
+    public TopicExchange orderExchange() {
+        return new TopicExchange(orderExchange);
+    }
+
+    /**
+     * 绑定订单队列到订单交换机
+     * @return Binding
+     */
+    @Bean
+    public Binding orderBinding() {
+        return BindingBuilder.bind(orderQueue())
+                .to(orderExchange())
+                .with(orderRoutingKey);
+
+    }
+
+    /**
+     * 声明死信队列
+     * @return DirectExchange
+     */
+    @Bean
+    public TopicExchange dlxExchange() {
+        return new TopicExchange(dlxExchange);
+    }
+
+    /**
+     * 声明死信队列
+     * @return Queue
+     */
+    @Bean
+    public Queue dlxQueue() {
+        return new Queue(dlxQueue);
+    }
+
+    /**
+     * 绑定死信队列到死信交换机
+     * @return Binding
+     */
+    @Bean
+    public Binding binding() {
+        return BindingBuilder.bind(dlxQueue())
+                .to(dlxExchange())
+                .with(dlxRoutingKey);
+    }
 
     @Bean
     public RabbitTemplate createRabbitTemplate(ConnectionFactory connectionFactory){
