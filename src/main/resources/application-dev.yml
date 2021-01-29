@@ -100,19 +100,7 @@ spring:
       wall:
         config:
           multi-statement-allow: true
-  # redis配置
-  redis:
-    host: 127.0.0.1
-    database: 0
-    port: 6379
-    password: 1323!Q@#EMSD%$^
-    jedis:
-      pool:
-        max-active: 200
-        max-wait: 1
-        max-idle: 10
-        min-idle: 0
-    timeout: 1000
+
   # kafka配置
   kafka:
     bootstrap-servers: localhost:9092
@@ -178,3 +166,8 @@ spring:
 swagger:
   swagger-ui-open: true
   host: localhost:8088
+
+  # redis配置
+redisson:
+  address: redis://localhost:6379
+  password: 1323!Q@#EMSD%$^
