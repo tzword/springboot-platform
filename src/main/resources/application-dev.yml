@@ -178,3 +178,11 @@ spring:
 swagger:
   swagger-ui-open: true
   host: localhost:8088
+
+  # es配置
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: localhost:9300
+      repositories:
+        enabled: true

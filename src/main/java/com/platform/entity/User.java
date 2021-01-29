@@ -60,5 +60,12 @@ public class User implements Serializable {
     @ApiModelProperty(value = "所属经纪机构")
     private Integer agencyId;
 
+    @ApiModelProperty(value = "用户token")
+    private String token;
+
+    @ApiModelProperty(value = "token过期时间")
+    private Date tokenExpiredTime;
+
+
 
 }
