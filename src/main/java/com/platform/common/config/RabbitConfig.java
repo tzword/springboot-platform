@@ -39,7 +39,7 @@ public class RabbitConfig {
     @Bean
     public Queue orderQueue() {
         Map<String,Object> arguments = new HashMap<>(2);
-        // 绑定该队列到私信交换机
+        // 绑定该队列到死信交换机
         arguments.put("x-dead-letter-exchange",dlxExchange);
         arguments.put("x-dead-letter-routing-key",dlxRoutingKey);
         return new Queue(orderQueue,true,false,false,arguments);
@@ -67,7 +67,7 @@ public class RabbitConfig {
     }
 
     /**
-     * 声明死信队列
+     * 声明死信交换机
      * @return DirectExchange
      */
     @Bean
