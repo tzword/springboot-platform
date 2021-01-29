@@ -178,3 +178,9 @@ spring:
 swagger:
   swagger-ui-open: true
   host: localhost:8088
+
+rocketmq:
+  producer:
+    group: test_group
+  name-server: 127.0.0.1:9876
+  topic-key: test_topic
