@@ -178,3 +178,9 @@ spring:
 swagger:
   swagger-ui-open: true
   host: localhost:8088
+
+
+dingding:
+  secret: SECc4dd39687f1e0a833fb4336dda8abe58c4b044ff278e40065894be171a8b2d98
+  accessToken: 6337f1264fb23b452d32fbe0102db5b38c6204edc9dd638e525e6cc399c3ef34
+  url: https://oapi.dingtalk.com/robot/send

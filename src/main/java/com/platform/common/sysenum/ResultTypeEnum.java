@@ -17,6 +17,8 @@ public enum ResultTypeEnum {
     SYS_REQUEST_ERROR("204","请求格式错误"),
     //无效签名
     SYS_SIGN_ERROR("700","无效签名"),
+    //token失效
+    SYS_TOKEN_EXPIRED_ERROR("802","token过期,请重新登录"),
 
     //操作成功
     BIZ_SUCCESS("200000","操作成功"),
@@ -27,7 +29,9 @@ public enum ResultTypeEnum {
     //密码错误
     BIZ_PASSWORD_ERROR("200702","密码错误"),
     //验证码错误
-    BIZ_CAPTCHA("200600","验证码错误");
+    BIZ_CAPTCHA("200600","验证码错误"),
+    //验证码错误
+    BIZ_MSG_ERROR("200900","钉钉信息发送失败");
 
     ResultTypeEnum(String value, String desc) {
         this.value = value;
