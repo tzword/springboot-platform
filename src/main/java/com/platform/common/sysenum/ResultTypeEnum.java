@@ -27,7 +27,9 @@ public enum ResultTypeEnum {
     //密码错误
     BIZ_PASSWORD_ERROR("200702","密码错误"),
     //验证码错误
-    BIZ_CAPTCHA("200600","验证码错误");
+    BIZ_CAPTCHA("200600","验证码错误"),
+    //访问
+    BIZ_REQUEST_LIMIT("200900","已达到访问限制");
 
     ResultTypeEnum(String value, String desc) {
         this.value = value;

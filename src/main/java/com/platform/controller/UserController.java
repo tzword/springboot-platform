@@ -1,6 +1,7 @@
 package com.platform.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.platform.common.annotation.AccessLimit;
 import com.platform.common.base.CurdController;
 import com.platform.common.domain.AjaxResult;
 import com.platform.common.sysenum.ResultTypeEnum;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -138,5 +140,20 @@ public class UserController extends CurdController<User> {
         }
 
     };
+
+
+    /**
+     * @Description: 测试限流
+     * @param  1 
+     * @return com.platform.common.domain.AjaxResult 
+     * @throws
+     * @author jianghy
+     * @date 2021/2/5 17:05
+     */
+    @AccessLimit(seconds=5, maxCount=5, needLogin=false)
+    @RequestMapping("/testLimit")
+    public AjaxResult testLimit(){
+        return AjaxResult.success();
+    }
     
 }
