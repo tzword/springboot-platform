@@ -59,15 +59,15 @@ spring:
     druid:
      # 主库数据源
      master:
-        url: jdbc:mysql://localhost:3306/houses?useSSL=false&serverTimezone=UTC
+        url: jdbc:mysql://localhost:3306/jg?useSSL=false&serverTimezone=UTC
         username: root
-        password: 1323!Q@#EMSD%$^
+        password: 123456
         #树熊数据源
      slave:
         enabled : false
-        url: jdbc:mysql://localhost:3306/houses2?useSSL=false&serverTimezone=UTC
+        url: jdbc:mysql://localhost:3306/jg?useSSL=false&serverTimezone=UTC
         username: root
-        password: 1323!Q@#EMSD%$^
+        password: 123456
         #配置初始化连接数大小
      initial-size: 10
      # 最大连接数
@@ -115,7 +115,7 @@ spring:
     timeout: 1000
   # kafka配置
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: 192.168.38.3:9092
     producer:
       # 发生错误后，消息重发的次数。
       retries: 0
@@ -151,29 +151,29 @@ spring:
       ack-mode: manual_immediate
       missing-topics-fatal: false
   # rabbitmq 配置
-  rabbitmq:
-    template:
-      mandatory: true
-      exchange: ex_test
-      routing-key: test_001
-    host: localhost
-    port: 5672
-    username: test01
-    password: test01
-    virtual-host: vh_test
-    #支持发布确认与返回
-    publisher-confirms: true
-    publisher-returns: true
-    listener:
-      simple:
-        #手动应答
-        acknowledge-mode: manual
-        #监听容器数及最大数
-        concurrency: 1
-        max-concurrency: 1
-        #是否支持重试
-        retry:
-          enabled: true
+#  rabbitmq:
+#    template:
+#      mandatory: true
+#      exchange: ex_test
+#      routing-key: test_001
+#    host: localhost
+#    port: 5672
+#    username: test01
+#    password: test01
+#    virtual-host: vh_test
+#    #支持发布确认与返回
+#    publisher-confirms: true
+#    publisher-returns: true
+#    listener:
+#      simple:
+#        #手动应答
+#        acknowledge-mode: manual
+#        #监听容器数及最大数
+#        concurrency: 1
+#        max-concurrency: 1
+#        #是否支持重试
+#        retry:
+#          enabled: true
 # swagger 配置
 swagger:
   swagger-ui-open: true
