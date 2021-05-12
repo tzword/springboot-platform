@@ -178,3 +178,9 @@ spring:
 swagger:
   swagger-ui-open: true
   host: localhost:8088
+
+s3:
+  accessKeyID: AKIAXQT4K7354TZS3U36
+  secretKey: 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
+  bucketName: das.internal.int
+  region: cn-north-1
