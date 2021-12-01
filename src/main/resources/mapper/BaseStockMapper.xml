@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.platform.mapper.BaseStockMapper">
+
+        <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.platform.entity.BaseStock">
+            <id column="id" property="id"/>
+            <result column="code" property="code"/>
+            <result column="ticker" property="ticker"/>
+            <result column="orgid" property="orgid"/>
+            <result column="org_en" property="orgEn"/>
+            <result column="org" property="org"/>
+            <result column="abbr" property="abbr"/>
+            <result column="abbr_en" property="abbrEn"/>
+            <result column="abbr_py" property="abbrPy"/>
+            <result column="mkt_code" property="mktCode"/>
+            <result column="mkt_en" property="mktEn"/>
+            <result column="mkt" property="mkt"/>
+            <result column="list_status" property="listStatus"/>
+            <result column="list_dt" property="listDt"/>
+            <result column="list_edt" property="listEdt"/>
+            <result column="csfid" property="csfid"/>
+            <result column="create_time" property="createTime"/>
+            <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+        <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, ticker, orgid, org_en, org, abbr, abbr_en, abbr_py, mkt_code, mkt_en, mkt, list_status, list_dt, list_edt, csfid, create_time, update_time
+    </sql>
+</mapper>

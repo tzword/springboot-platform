@@ -21,13 +21,13 @@ public class KafkaProducer {
     private KafkaTemplate<String, Object> kafkaTemplate;
 
     //自定义topic
-    public static final String TOPIC_TEST = "topic.test";
+    public static final String TOPIC_TEST = "test_ann_jc_topic";
 
     //
-    public static final String TOPIC_GROUP1 = "topic.group1";
+    public static final String TOPIC_GROUP1 = "group1";
 
     //
-    public static final String TOPIC_GROUP2 = "topic.group2";
+    public static final String TOPIC_GROUP2 = "group2";
 
     public void send(Object obj) {
         String obj2String = JSONObject.toJSONString(obj);

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.platform.mapper.AnnSourceMapper">
+
+        <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.platform.entity.AnnSource">
+            <id column="SECCODE" property="seccode"/>
+            <result column="OBJECTID" property="objectid"/>
+            <result column="RECID" property="recid"/>
+            <result column="SECNAME" property="secname"/>
+            <result column="TEXTID" property="textid"/>
+            <result column="F001D" property="f001d"/>
+            <result column="F002V" property="f002v"/>
+            <result column="F003V" property="f003v"/>
+            <result column="F004V" property="f004v"/>
+            <result column="F005N" property="f005n"/>
+            <result column="F006V" property="f006v"/>
+            <result column="F007V" property="f007v"/>
+            <result column="F008V" property="f008v"/>
+            <result column="F009V" property="f009v"/>
+            <result column="F010V" property="f010v"/>
+            <result column="F015V" property="f015v"/>
+            <result column="MEMO" property="memo"/>
+            <result column="RECTIME" property="rectime"/>
+            <result column="OPTYPE" property="optype"/>
+            <result column="createTime" property="createTime"/>
+            <result column="offset" property="offset"/>
+            <result column="updateTime" property="updateTime"/>
+            <result column="topicId" property="topicId"/>
+            <result column="isdownload" property="isdownload"/>
+    </resultMap>
+
+        <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        OBJECTID, RECID, SECCODE, SECNAME, TEXTID, F001D, F002V, F003V, F004V, F005N, F006V, F007V, F008V, F009V, F010V, F015V, MEMO, RECTIME, OPTYPE, createTime, offset, updateTime, topicId, isdownload
+    </sql>
+
+    <select id="getAnnSourceInfo" resultMap="BaseResultMap" statementType="STATEMENT">
+        select <include refid="Base_Column_List" /> from ${annTableName}
+        where topicId = ${topicId} and TEXTID = ${textid} and SECCODE = ${seccode}
+    </select>
+
+
+</mapper>

@@ -52,6 +52,13 @@
 
 #mysql 8.0
 spring:
+  # es配置
+  data:
+    elasticsearch:
+      cluster-name: elk-cluster
+      cluster-nodes: 192.168.250.213:9300,192.168.250.210:9300,192.168.250.216:9300
+      repositories:
+        enabled: true
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
@@ -151,30 +158,50 @@ spring:
       ack-mode: manual_immediate
       missing-topics-fatal: false
   # rabbitmq 配置
-#  rabbitmq:
-#    template:
-#      mandatory: true
-#      exchange: ex_test
-#      routing-key: test_001
-#    host: localhost
-#    port: 5672
-#    username: test01
-#    password: test01
-#    virtual-host: vh_test
-#    #支持发布确认与返回
-#    publisher-confirms: true
-#    publisher-returns: true
-#    listener:
-#      simple:
-#        #手动应答
-#        acknowledge-mode: manual
-#        #监听容器数及最大数
-#        concurrency: 1
-#        max-concurrency: 1
-#        #是否支持重试
-#        retry:
-#          enabled: true
+  rabbitmq:
+    template:
+      mandatory: true
+      exchange: ex_test
+      routing-key: test_001
+    host: localhost
+    port: 5672
+    username: test01
+    password: test01
+    virtual-host: vh_test
+    #支持发布确认与返回
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      simple:
+        #手动应答
+        acknowledge-mode: manual
+        #监听容器数及最大数
+        concurrency: 1
+        max-concurrency: 1
+        #是否支持重试
+        retry:
+          enabled: true
 # swagger 配置
 swagger:
   swagger-ui-open: true
   host: localhost:8088
+
+s3:
+  accessKeyID: AKIAXQT4K7354TZS3U36
+  secretKey: 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
+  bucketName: das.internal.int
+  region: cn-north-1
+  filePath:
+    prefix: test/announce/file-meta
+ann:
+  types: 140106,100404
+  typeUrl: http://122.144.133.59:28190/algorithm/process/announcement_classifier
+
+das:
+  announce:
+    type:
+      q1: 100301,100302
+      q2: 100201,100204,100205,100206,100207
+      q3: 100306,100307
+      q4: 100401,100404,100405,100406,100407,100408,110208,110506,140801,140806,140802,140804,140808,122001,122004,120601,120607,122008,100911,100101,100102
+
