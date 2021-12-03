@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.platform.mapper.Info3018Mapper">
+
+        <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.platform.entity.Info3018">
+            <id column="TEXTID" property="textid"/>
+            <result column="SECCODE" property="seccode"/>
+            <result column="SECNAME" property="secname"/>
+            <result column="DECLAREDATE" property="declaredate"/>
+            <result column="F001V" property="f001v"/>
+            <result column="F002V" property="f002v"/>
+            <result column="F003V" property="f003v"/>
+            <result column="F004V" property="f004v"/>
+            <result column="F005V" property="f005v"/>
+            <result column="F006V" property="f006v"/>
+            <result column="F007V" property="f007v"/>
+            <result column="MEMO" property="memo"/>
+            <result column="createTime" property="createTime"/>
+    </resultMap>
+
+        <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        TEXTID, SECCODE, SECNAME, DECLAREDATE, F001V, F002V, F003V, F004V, F005V, F006V, F007V, MEMO, createTime
+    </sql>
+</mapper>
